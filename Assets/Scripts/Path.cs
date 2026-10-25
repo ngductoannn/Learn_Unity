@@ -25,4 +25,9 @@ public class Path : MonoBehaviour
             }
         }
     }
+
+    public Vector3 GetPosition(int index)
+    {
+        return WayPoints[index].transform.position;
+    }
 }
