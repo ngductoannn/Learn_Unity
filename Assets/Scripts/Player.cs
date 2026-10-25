@@ -4,29 +4,31 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private float speed;
-    void Start()
+    [Header("a")]
+   [SerializeField] float speed;
+   [SerializeField] Tower tower;
+   [SerializeField] Vector3 target;
+   [SerializeField] int cur;
+
+    private void Start()
     {
-        speed = 10f;
+        target = tower.GetPosition(0);
+        cur = 0;
     }
 
-    void Update()
+    private void Update()
     {
-        
-    }
-
-    private void Handle()
-    {
-        
-    }
-
-    private void HandleInput()
-    {
-        
-    }
-
-    private void HandleMovement()
-    {
-        
+        if(cur < 4)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, target, speed*Time.deltaTime);
+            if(transform.position == target)
+            {
+                cur++;
+                if(cur <= 3)
+                {
+                    target = tower.GetPosition(cur);
+                }
+            }
+        }
     }
 }

@@ -179,7 +179,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 55b6a70b86774451b9b65a284b2c8705, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 487099019}
   - component: {fileID: 487099018}
   m_Layer: 0
-  m_Name: Tower 3
+  m_Name: Tower3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -263,7 +263,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 55b6a70b86774451b9b65a284b2c8705, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -284,7 +284,7 @@ Transform:
   m_GameObject: {fileID: 487099017}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.2889128, y: 3.1390824, z: -0.11439331}
+  m_LocalPosition: {x: 1.51, y: 2.41, z: -0.11439331}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -404,6 +404,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 700481565}
+  - component: {fileID: 700481566}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Untagged
@@ -420,7 +421,7 @@ Transform:
   m_GameObject: {fileID: 700481564}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.081087, y: 1.4609176, z: 0.11439331}
+  m_LocalPosition: {x: 3.48, y: 1.41, z: 0.11439331}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -430,6 +431,23 @@ Transform:
   - {fileID: 1789100203}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &700481566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700481564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0222b18c376de4d749b03957b8c46142, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tower:
+  - {fileID: 1275222412}
+  - {fileID: 204639982}
+  - {fileID: 487099017}
+  - {fileID: 1789100202}
 --- !u!1 &1275222412
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,7 +505,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 55b6a70b86774451b9b65a284b2c8705, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -508,7 +526,7 @@ Transform:
   m_GameObject: {fileID: 1275222412}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.161087, y: 3.1090827, z: -0.11439331}
+  m_LocalPosition: {x: -10.91, y: 2.23, z: -0.11439331}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -611,6 +629,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 159b7a828269e4cdeacdd44b62de4290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
+  tower: {fileID: 700481566}
+  target: {x: 0, y: 0, z: 0}
+  cur: 0
 --- !u!1 &1789100202
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,7 +659,7 @@ Transform:
   m_GameObject: {fileID: 1789100202}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.928913, y: -4.9109178, z: -0.11439331}
+  m_LocalPosition: {x: 5.44, y: -5.74, z: -0.11439331}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -683,7 +705,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 55b6a70b86774451b9b65a284b2c8705, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -695,59 +717,10 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1989905741
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1989905742}
-  - component: {fileID: 1989905743}
-  m_Layer: 0
-  m_Name: DrawTower
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1989905742
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1989905741}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.930681, y: 1.4233162, z: 0.11439331}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1989905743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1989905741}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0222b18c376de4d749b03957b8c46142, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tower:
-  - {fileID: 1275222412}
-  - {fileID: 204639982}
-  - {fileID: 487099017}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 1393993263}
-  - {fileID: 1989905742}
   - {fileID: 700481565}
