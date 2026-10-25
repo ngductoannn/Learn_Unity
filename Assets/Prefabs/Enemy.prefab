@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76272fdad7acc458dabd089af77e629c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMove: 3
+  speedMove: 5.04
   targetPosition: {x: 0, y: 0, z: 0}
   currentPath: {fileID: 0}
   currentWayPoint: 0

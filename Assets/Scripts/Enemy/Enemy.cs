@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
 
     private void OnEnable()
     {
+        currentWayPoint = 0;
         targetPosition = currentPath.GetPosition(currentWayPoint);
     }
 
@@ -23,7 +24,6 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, speedMove*Time.deltaTime);
-        
         float relativeDistance = (transform.position - targetPosition).magnitude; 
         if(relativeDistance < 0.1f)
         {

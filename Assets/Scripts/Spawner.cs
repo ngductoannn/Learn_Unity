@@ -7,7 +7,8 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float spawnTimer;
     [SerializeField] private float spawnInterval = 1f;
 
-    public GameObject prefabs;
+
+    [SerializeField] private ObjectPooler pool;
 
     // Update is called once per frame
     void Update()
@@ -15,14 +16,16 @@ public class Spawner : MonoBehaviour
         spawnTimer -= Time.deltaTime;
         if(spawnTimer <= 0)
         {
-            SpawnEnemy();
             spawnTimer = spawnInterval;
+            SpawnEnemy();
         }
     }
 
     private void SpawnEnemy()
     {
-        GameObject spawnedObject = GameObject.Instantiate(prefabs);
+        GameObject spawnedObject = pool.GetPoolObject();
         spawnedObject.transform.position = transform.position;
+        spawnedObject.SetActive(true);
     }
+
 }
