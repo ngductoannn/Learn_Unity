@@ -6,15 +6,10 @@ public class ObjectPooler : MonoBehaviour
 {
     [SerializeField] private GameObject prefab;
     [SerializeField] private List<GameObject> pool;
-    [SerializeField] private int sizePool;
 
     private void Start()
     {
         pool = new List<GameObject>();
-        for(int i = 0; i < sizePool; i++)
-        {
-            CreateNewObject();   
-        }
     }
 
     private GameObject CreateNewObject()
