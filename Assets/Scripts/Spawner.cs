@@ -1,31 +1,55 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private float spawnTimer;
-    [SerializeField] private float spawnInterval = 1f;
+    [SerializeField] private WaveData[] waves;
+    private int currentWaveIndex = 0;
+    private WaveData CurrentWave => waves[currentWaveIndex];
+    private float spawnTimer;
+    private float spawnCounter;
 
 
-    [SerializeField] private ObjectPooler pool;
+    [SerializeField] private ObjectPooler skeletonPool;
+    [SerializeField] private ObjectPooler batPool;
+    [SerializeField] private ObjectPooler t_RexPool;
 
-    // Update is called once per frame
+    private Dictionary<EnemyType, ObjectPooler> poolDictionary;
+
+    private void Awake()
+    {
+        poolDictionary = new Dictionary<EnemyType, ObjectPooler>()
+        {
+            {EnemyType.Skeleton, skeletonPool},
+            {EnemyType.Bat, batPool},
+            {EnemyType.T_Rex, t_RexPool}
+        };
+    }
+
     void Update()
     {
         spawnTimer -= Time.deltaTime;
-        if(spawnTimer <= 0)
+        if(spawnTimer <= 0 && spawnCounter < CurrentWave.enemiesPerWay)
         {
-            spawnTimer = spawnInterval;
+            spawnTimer = CurrentWave.spawnInterval;
             SpawnEnemy();
+            spawnCounter++;
+        }
+        else if(spawnCounter >= CurrentWave.enemiesPerWay)
+        {
+            currentWaveIndex = (currentWaveIndex + 1) % waves.Length;
+            spawnCounter = 0;
         }
     }
 
     private void SpawnEnemy()
     {
-        GameObject spawnedObject = pool.GetPoolObject();
-        spawnedObject.transform.position = transform.position;
-        spawnedObject.SetActive(true);
+        if (poolDictionary.TryGetValue(CurrentWave.enemyType, out var pool))
+        {
+            GameObject spawnedObject = pool.GetPoolObject();
+            spawnedObject.transform.position = transform.position;
+            spawnedObject.SetActive(true);
+        }
     }
 
 }
