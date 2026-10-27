@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private float speed;
-    [SerializeField] private Path path;
+    [SerializeField] EnemyData data;
+    private Path path;
     [SerializeField] private Vector3 target;
     [SerializeField] private int currentWayPoint;
 
@@ -34,6 +34,6 @@ public class Enemy : MonoBehaviour
             }
             target = path.GetPosition(currentWayPoint);
         }
-        transform.position = Vector3.MoveTowards(transform.position, target, speed*Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, target, data.speed*Time.deltaTime);
     }
 }

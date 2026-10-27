@@ -104,7 +104,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c6fb3febdf374ca38bf8669fad6e34a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  path: {fileID: 0}
+  data: {fileID: 11400000, guid: fa7bcd33fb0fe4fce98c7b097cf7a4b2, type: 2}
   target: {x: 0, y: 0, z: 0}
   currentWayPoint: 0
