@@ -6,8 +6,6 @@ public class Spawn : MonoBehaviour
 {
     [SerializeField] private float spawnTime;
     [SerializeField] private float distanceTime;
-
-    [SerializeField] private GameObject prefab;
     [SerializeField] private ObjectPooler pool;
 
     private void Update()
