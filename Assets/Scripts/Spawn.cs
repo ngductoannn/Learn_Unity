@@ -8,6 +8,8 @@ public class Spawn : MonoBehaviour
     [SerializeField] private int currentPoolIndex;
     [SerializeField] private float timeIntervalPool;
 
+    public static event Action<int> ChangeColor;
+
     private void Awake()
     {
         currentPoolIndex = 0;
@@ -22,6 +24,8 @@ public class Spawn : MonoBehaviour
             currentPoolIndex = (currentPoolIndex+1)%pool.Length;
             spawnTime = 0;
             timeIntervalPool = 3f;
+
+            ChangeColorGray();
         }
         if(spawnTime <= 0)
         {
@@ -35,5 +39,13 @@ public class Spawn : MonoBehaviour
         GameObject ois = pool[currentPoolIndex].Pooler();
         ois.transform.position = transform.position;
         ois.SetActive(true);
+    }
+
+    public void ChangeColorGray()
+    {
+        if(currentPoolIndex == pool.Length - 1)
+        {
+            ChangeColor?.Invoke(currentPoolIndex);
+        }
     }
 }
