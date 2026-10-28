@@ -395,7 +395,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spawn
   spawnTime: 0
-  pool: {fileID: 1870388905}
+  pool:
+  - {fileID: 1870388905}
+  - {fileID: 908377120}
+  - {fileID: 681113649}
+  - {fileID: 1564459458}
+  - {fileID: 695414457}
+  currentPoolIndex: 0
+  timeIntervalPool: 3
 --- !u!4 &1006533283
 Transform:
   m_ObjectHideFlags: 0
