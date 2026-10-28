@@ -17,9 +17,9 @@ public class Spawn : MonoBehaviour
     {
         timeIntervalPool -= Time.deltaTime;
         spawnTime -= Time.deltaTime;
-        if(timeIntervalPool <= 0 && currentPoolIndex < pool.Length-1)
+        if(timeIntervalPool <= 0 && currentPoolIndex < pool.Length)
         {
-            currentPoolIndex++;
+            currentPoolIndex = (currentPoolIndex+1)%pool.Length;
             spawnTime = 0;
             timeIntervalPool = 3f;
         }
