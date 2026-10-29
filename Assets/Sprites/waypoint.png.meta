@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: be3e59308ebd64199b2888fb7205c53d
+guid: 1d5c297b7a3cb416b8be29c89f412935
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7316229441688303391
-    second: Tower_0
+      213: -1378406252391678146
+    second: waypoint_0
+  - first:
+      213: 8829147332040881235
+    second: waypoint_1
+  - first:
+      213: 6998776989946650030
+    second: waypoint_2
+  - first:
+      213: 4235734598940074630
+    second: waypoint_3
+  - first:
+      213: 8369301192385674324
+    second: waypoint_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +112,35 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tower_0
+      name: waypoint_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 234
-        height: 234
+        x: 13
+        y: 3
+        width: 74
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3f340a01daeedce0800000000000000
+      internalID: -1378406252391678146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waypoint_1
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 12
+        width: 82
+        height: 76
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +149,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f17f5170ae7788560800000000000000
-      internalID: 7316229441688303391
+      spriteID: 35472eb38be678a70800000000000000
+      internalID: 8829147332040881235
       vertices: []
       indices: 
       edges: []
@@ -125,7 +159,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 60961fa4f50e4475da632b905309fcbf
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +169,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Tower_0: 7316229441688303391
+      waypoint_0: -1378406252391678146
+      waypoint_1: 8829147332040881235
+      waypoint_2: 6998776989946650030
+      waypoint_3: 4235734598940074630
+      waypoint_4: 8369301192385674324
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
