@@ -1,9 +1,11 @@
+using System;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private EnemyData data;
-    [SerializeField] private Path currentPath;
+    public static event Action<EnemyData> OnEnemyReachedEnd;
+    private Path currentPath;
     private Vector3 targetPosition;
     private int currentWayPoint;
 
@@ -32,6 +34,7 @@ public class Enemy : MonoBehaviour
             }
             else
             {
+                OnEnemyReachedEnd?.Invoke(data);
                 gameObject.SetActive(false);
             }
         }
