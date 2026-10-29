@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 3f;
+    [SerializeField] private EnemyData data;
     [SerializeField] private Path currentPath;
     private Vector3 targetPosition;
     private int currentWayPoint;
@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime*moveSpeed);
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime*data.speed);
 
         float relativeDistance = (transform.position - targetPosition).magnitude;
         if(relativeDistance < 0.1f)

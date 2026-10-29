@@ -104,5 +104,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 930ab4d86ab934a5698c481d43e9c729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  moveSpeed: 3
+  data: {fileID: 11400000, guid: c5b9d487b8d5a4c57a512f67ad8cf3ee, type: 2}
   currentPath: {fileID: 0}
