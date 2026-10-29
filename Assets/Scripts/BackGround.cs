@@ -19,7 +19,7 @@ public class BackGround : MonoBehaviour
         Spawn.ChangeColor -= ChangeColor;
     }
 
-    private void ChangeColor(int i)
+    private void ChangeColor()
     {
         sp.color = Color.gray;
     }

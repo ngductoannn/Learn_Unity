@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Spawn : MonoBehaviour
@@ -8,7 +9,7 @@ public class Spawn : MonoBehaviour
     [SerializeField] private int currentPoolIndex;
     [SerializeField] private float timeIntervalPool;
 
-    public static event Action<int> ChangeColor;
+    public static event Action ChangeColor;
 
     private void Awake()
     {
@@ -21,16 +22,23 @@ public class Spawn : MonoBehaviour
         spawnTime -= Time.deltaTime;
         if(timeIntervalPool <= 0 && currentPoolIndex < pool.Length)
         {
-            currentPoolIndex = (currentPoolIndex+1)%pool.Length;
+            currentPoolIndex = currentPoolIndex+1;
+            if(currentPoolIndex == pool.Length)
+            {
+                gameObject.SetActive(false);
+            }
             spawnTime = 0;
-            timeIntervalPool = 3f;
+            timeIntervalPool = 1.5f;
 
             ChangeColorGray();
         }
         if(spawnTime <= 0)
         {
-            spawnTime = pool[currentPoolIndex].TimeInterval();
-            SpawnPrefab();
+            if(currentPoolIndex < pool.Length)
+            {
+                spawnTime = pool[currentPoolIndex].TimeInterval();
+                SpawnPrefab();
+            }
         }
     }
 
@@ -41,11 +49,11 @@ public class Spawn : MonoBehaviour
         ois.SetActive(true);
     }
 
-    public void ChangeColorGray()
+    private void ChangeColorGray()
     {
         if(currentPoolIndex == pool.Length - 1)
         {
-            ChangeColor?.Invoke(currentPoolIndex);
+            ChangeColor?.Invoke();
         }
     }
 }
