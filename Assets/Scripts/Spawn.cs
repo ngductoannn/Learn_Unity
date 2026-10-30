@@ -7,8 +7,11 @@ public class Spawn : MonoBehaviour
 {
     [Header("Wave")]
     [SerializeField] private WaveData[] waves;
-    [SerializeField] private int currentWaveIndex = 0;
+    private int currentWaveIndex = 0;
     private WaveData currentWave => waves[currentWaveIndex];
+    private float timeBetweenWaves = 2f;
+    private float waveCooldown;
+    private bool isBetweenWaves = false;
     private int spawnCounter;
     private float spawnTime;
     private int enemiesRemoved;
@@ -42,18 +45,32 @@ public class Spawn : MonoBehaviour
 
     private void Update()
     {
-        spawnTime -= Time.deltaTime;
-        if(spawnTime <= 0 && spawnCounter < currentWave.enemiesPerWave)
+        if (isBetweenWaves)
         {
-            spawnCounter++;
-            spawnTime = currentWave.spawnInterval;
-            SpawnEnemy();
+            waveCooldown -= Time.deltaTime;
+            if(waveCooldown <= 0)
+            {
+                currentWaveIndex = (currentWaveIndex + 1)%waves.Length;
+                spawnCounter = 0;
+                enemiesRemoved = 0;
+                spawnTime = 0;
+                isBetweenWaves = false;
+            }
         }
-        else if(spawnCounter >= currentWave.enemiesPerWave && enemiesRemoved >= currentWave.enemiesPerWave)
+        else
         {
-            currentWaveIndex = (currentWaveIndex + 1)%waves.Length;
-            spawnCounter = 0;
-            enemiesRemoved = 0;
+            spawnTime -= Time.deltaTime;
+            if(spawnTime <= 0 && spawnCounter < currentWave.enemiesPerWave)
+            {
+                spawnCounter++;
+                spawnTime = currentWave.spawnInterval;
+                SpawnEnemy();
+            }
+            else if(spawnCounter >= currentWave.enemiesPerWave && enemiesRemoved >= currentWave.enemiesPerWave)
+            {
+                isBetweenWaves = true;
+                waveCooldown = timeBetweenWaves;
+            }
         }
     }
 
