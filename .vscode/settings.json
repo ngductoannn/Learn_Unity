@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "learnUnity.slnx"
+    "dotnet.defaultSolution": "Learn_Unity.slnx"
 }
