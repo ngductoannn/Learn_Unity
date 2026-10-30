@@ -11,7 +11,7 @@ public class ObjectPooler : MonoBehaviour
     private void Start()
     {
         pool = new List<GameObject>();
-        for(int i = 0; i < 5; i++)
+        for(int i = 0; i < poolSize; i++)
         {
             CreateNewObject();
         }
