@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class Spawn : MonoBehaviour
 {
+
+    public static event Action<int> OnWaveChanged; 
+
+
     [Header("Wave")]
     [SerializeField] private WaveData[] waves;
     private int currentWaveIndex = 0;
@@ -12,6 +16,7 @@ public class Spawn : MonoBehaviour
     private float timeBetweenWaves = 2f;
     private float waveCooldown;
     private bool isBetweenWaves = false;
+    private int waveCounter;
     private int spawnCounter;
     private float spawnTime;
     private int enemiesRemoved;
@@ -43,6 +48,11 @@ public class Spawn : MonoBehaviour
         Enemy.OnEnemyReachedEnd -= HandleEnemyReachedEnd;
     }
 
+    private void Start()
+    {
+        OnWaveChanged?.Invoke(currentWaveIndex);
+    }
+
     private void Update()
     {
         if (isBetweenWaves)
@@ -51,6 +61,8 @@ public class Spawn : MonoBehaviour
             if(waveCooldown <= 0)
             {
                 currentWaveIndex = (currentWaveIndex + 1)%waves.Length;
+                waveCounter++;
+                OnWaveChanged?.Invoke(waveCounter);
                 spawnCounter = 0;
                 enemiesRemoved = 0;
                 spawnTime = 0;
