@@ -41,11 +41,14 @@ public class Spawn : MonoBehaviour
     private void OnEnable()
     {
         Enemy.OnEnemyReachedEnd += HandleEnemyReachedEnd;
+        Enemy.OnEnemyDestroyed += HandleEnemyDestroyed;
+    
     }
 
     private void OnDisable()
     {
         Enemy.OnEnemyReachedEnd -= HandleEnemyReachedEnd;
+        Enemy.OnEnemyDestroyed -= HandleEnemyDestroyed;
     }
 
     private void Start()
@@ -97,6 +100,11 @@ public class Spawn : MonoBehaviour
     }
 
     private void HandleEnemyReachedEnd(EnemyData data)
+    {
+        enemiesRemoved++;
+    }
+
+    private void HandleEnemyDestroyed(Enemy enemy)
     {
         enemiesRemoved++;
     }

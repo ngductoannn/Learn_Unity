@@ -5,9 +5,12 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private EnemyData data;
     public static event Action<EnemyData> OnEnemyReachedEnd;
+    public static event Action<Enemy> OnEnemyDestroyed;
     private Path currentPath;
     private Vector3 targetPosition;
     private int currentWayPoint;
+
+    private float lives;
 
     private void Awake()
     {
@@ -18,6 +21,7 @@ public class Enemy : MonoBehaviour
     {
         currentWayPoint = 0;
         targetPosition = currentPath.GetPosition(currentWayPoint);
+        lives = data.lives;
     }
 
     private void Update()
@@ -37,6 +41,17 @@ public class Enemy : MonoBehaviour
                 OnEnemyReachedEnd?.Invoke(data);
                 gameObject.SetActive(false);
             }
+        }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        lives -= damage;
+        lives = Mathf.Max(lives, 0);
+        if(lives <= 0)
+        {
+            OnEnemyDestroyed?.Invoke(this);
+            gameObject.SetActive(false);
         }
     }
 }

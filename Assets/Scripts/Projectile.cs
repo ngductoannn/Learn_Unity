@@ -26,5 +26,13 @@ public class Projectile : MonoBehaviour
         shootDirection = direction;
         projectDuration = data.projectileDurations;
     }
-    
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Enemy"))
+        {
+            collision.GetComponent<Enemy>().TakeDamage(data.damage);
+            gameObject.SetActive(false);
+        }
+    }
 }
