@@ -46,5 +46,17 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: BackGround
+    uniqueID: 1229341197
+    locked: 0
+  - name: Towers
+    uniqueID: 4068249143
+    locked: 0
+  - name: Enemies
+    uniqueID: 4029144823
+    locked: 0
+  - name: UI
+    uniqueID: 2272320789
+    locked: 0
   m_RenderingLayers:
   - Default
