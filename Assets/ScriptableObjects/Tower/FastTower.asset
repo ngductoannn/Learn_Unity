@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FastTower
   m_EditorClassIdentifier: Assembly-CSharp::TowerData
   range: 2.8
-  shootInterval: 1
-  projectileSpeed: 10
-  projectileDurations: 2
+  shootInterval: 0.2
+  projectileSpeed: 15
+  projectileDurations: 3
   damage: 1
